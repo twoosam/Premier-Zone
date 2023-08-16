@@ -11,6 +11,7 @@ function getPremierLeagueData() {
     // console.log(xhr.response);
     for (let i = 0; i < xhr.response.response[0].league.standings[0].length; i++) {
       const $newTr = document.createElement('tr');
+      const $newTdLogo = document.createElement('img');
       const $newTdTeam = document.createElement('td');
       const $newTdWin = document.createElement('td');
       const $newTdDraw = document.createElement('td');
@@ -19,13 +20,19 @@ function getPremierLeagueData() {
       $teamStandings.appendChild($newTr);
       $newTdTeam.textContent = xhr.response.response[0].league.standings[0][i].rank + ' ' + xhr.response.response[0].league.standings[0][i].team.name;
       $newTr.appendChild($newTdTeam);
+      $newTdLogo.setAttribute('src', xhr.response.response[0].league.standings[0][i].team.logo);
+      $newTdTeam.appendChild($newTdLogo);
       $newTdWin.textContent = xhr.response.response[0].league.standings[0][i].all.win;
+      $newTdWin.setAttribute('class', 'center-standing');
       $newTr.appendChild($newTdWin);
       $newTdDraw.textContent = xhr.response.response[0].league.standings[0][i].all.draw;
+      $newTdDraw.setAttribute('class', 'center-standing');
       $newTr.appendChild($newTdDraw);
       $newTdLoss.textContent = xhr.response.response[0].league.standings[0][i].all.lose;
+      $newTdLoss.setAttribute('class', 'center-standing');
       $newTr.appendChild($newTdLoss);
       $newTdPoints.textContent = xhr.response.response[0].league.standings[0][i].points;
+      $newTdPoints.setAttribute('class', 'center-standing');
       $newTr.appendChild($newTdPoints);
     }
   });

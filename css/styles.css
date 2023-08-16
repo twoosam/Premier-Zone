@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.img {
+  width: 20%;
+}
+
 .header-space h1 {
   font-family: "Cantora One", sans-serif;
 }
@@ -19,8 +23,8 @@
 }
 
 .grey-tab h3 {
-  padding-left: 0.2rem;
-  padding-right: 0.2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   font-family: "Cantora One", sans-serif;
 }
 
@@ -38,7 +42,7 @@
   font-family: "Cantora One", sans-serif;
 }
 
-table {
+#standings-table {
   width: 100%;
 }
 
@@ -49,4 +53,13 @@ td {
   background-color: rgb(41, 41, 41);
   color: rgb(217, 217, 217);
   font-family: "Cantora One", sans-serif;
+  font-size: 1.5rem;
+}
+
+img {
+  width: 50px;
+}
+
+.center-standing {
+  text-align: center;
 }
