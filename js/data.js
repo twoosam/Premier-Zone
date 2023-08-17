@@ -9,7 +9,7 @@ function getPremierLeagueData() {
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
     for (let i = 0; i < xhr.response.response[0].league.standings[0].length; i++) {
-      standingsTable(xhr.response.response[0].league.standings[0][i]);
+      $teamStandings.appendChild(standingsTable(xhr.response.response[0].league.standings[0][i]));
     }
   });
   xhr.send();
@@ -26,7 +26,6 @@ function standingsTable(xhr) {
   const $newTdDraw = document.createElement('td');
   const $newTdLoss = document.createElement('td');
   const $newTdPoints = document.createElement('td');
-  $teamStandings.appendChild($newTr);
   $newTdBlank.setAttribute('class', 'rank-logo-name');
   $newTr.appendChild($newTdBlank);
   $newTdRank.textContent = xhr.rank;
@@ -49,4 +48,6 @@ function standingsTable(xhr) {
   $newTdPoints.textContent = xhr.points;
   $newTdPoints.setAttribute('class', 'center-standing');
   $newTr.appendChild($newTdPoints);
+
+  return $newTr;
 }
