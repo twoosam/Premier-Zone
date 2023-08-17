@@ -8,8 +8,6 @@ function getPremierLeagueData() {
   xhr.setRequestHeader('x-apisports-key', '8ad7209e9e0a016c96f4e199bed14b5c');
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    // console.log(xhr.status);
-    // console.log(xhr.response);
     for (let i = 0; i < xhr.response.response[0].league.standings[0].length; i++) {
       const $newTr = document.createElement('tr');
       const $newTdBlank = document.createElement('td');
