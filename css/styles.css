@@ -28,10 +28,14 @@ main {
   width: 100%;
 }
 
-.grey-tab h3 {
+.grey-tab a {
   padding-left: 1rem;
   padding-right: 1rem;
   font-family: "Cantora One", sans-serif;
+  text-decoration: none;
+  color: black;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .standings-button {
