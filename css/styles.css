@@ -1,0 +1,97 @@
+main {
+  background-color: rgb(23, 23, 23);
+}
+
+.header-space {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.img {
+  width: 150px;
+}
+
+.header-space h1 {
+  font-family: "Cantora One", sans-serif;
+  font-size: 40px;
+  padding-left: 20px;
+}
+
+.grey-tab {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  border: 1px solid rgb(217, 217, 217);
+  background-color: rgb(217, 217, 217);
+  width: 100%;
+}
+
+.grey-tab h3 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-family: "Cantora One", sans-serif;
+}
+
+.standings-button {
+  text-decoration: underline;
+}
+
+.purple-tab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgb(61, 24, 92);
+  background-color: rgb(61, 24, 92);
+  color: white;
+  width: 100%;
+  font-family: "Cantora One", sans-serif;
+}
+
+.purple-tab h3 {
+  margin-left: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.purple-tab p {
+  margin-right: 76px;
+}
+
+#standings-table {
+  margin: auto;
+}
+
+table,
+th,
+td {
+  border: 1px solid rgb(217, 217, 217);
+  background-color: rgb(41, 41, 41);
+  color: rgb(217, 217, 217);
+  font-family: "Cantora One", sans-serif;
+  font-size: 1.5rem;
+}
+
+.logo-img {
+  width: 75px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.center-standing {
+  text-align: center;
+}
+
+.rank-logo-name {
+  display: flex;
+  align-items: center;
+}
+
+ins {
+  text-decoration: none;
+}
+
+.rank {
+  width: 0.75rem;
+}
