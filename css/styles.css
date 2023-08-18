@@ -99,3 +99,7 @@ ins {
 .rank {
   width: 0.75rem;
 }
+
+.player-goals {
+  color: white;
+}

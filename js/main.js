@@ -1,17 +1,20 @@
 // viewSwap function
-const $topScorers = document.querySelector('.top-scorers');
+const $topScorersView = document.querySelector('.top-scorers');
 const $teamStandingsview = document.querySelector('.standings-table');
 function viewSwap(string) {
   if (string === 'top-scorers') {
-    $topScorers.setAttribute('class', 'top-scorers');
+    $topScorersView.setAttribute('class', 'top-scorers');
     $teamStandingsview.setAttribute('class', 'hidden');
-  } else {
-    $topScorers.setAttribute('class', 'hidden');
+    $purpleTabName.textContent = 'Top Scorers';
+  } else if (string === 'standings-table') {
+    $topScorersView.setAttribute('class', 'hidden');
     $teamStandingsview.setAttribute('class', 'standings-table');
+    $purpleTabName.textContent = 'Standings';
   }
   data.view = string;
 }
 viewSwap();
+const $purpleTabName = document.querySelector('.purple-tab-title');
 
 // Anchor for when Standings is clicked
 const $standingsAnchor = document.querySelector('.standings-anchor');

@@ -59,7 +59,7 @@ function standingsTable(xhr) {
 }
 
 // Request to API for Top Scorers Data
-// const $topScorers = document.querySelector('#topScorers');
+const $topScorers = document.querySelector('#top-scorers-list');
 function getTopScorersData() {
   const xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://v3.football.api-sports.io/players/topscorers?league=39&season=2023');
@@ -67,8 +67,28 @@ function getTopScorersData() {
   xhr.setRequestHeader('x-apisports-key', '8ad7209e9e0a016c96f4e199bed14b5c');
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
+    // console.log(xhr.status);
+    // console.log(xhr.response);
+    for (let i = 0; i < xhr.response.response.length; i++) {
+      $topScorers.appendChild(topScorersList(xhr.response.response[i]));
+    }
   }
   );
-  // xhr.send();
+  xhr.send();
 }
 getTopScorersData();
+
+// Function to create player name and images
+function topScorersList(xhr) {
+  const $newLi = document.createElement('li');
+  const $newPlayer = document.createElement('ins');
+  const $newPlayerImg = document.createElement('img');
+  $newPlayer.setAttribute('class', 'player-goals');
+  $newPlayer.textContent = xhr.player.firstname + ' ' + xhr.player.lastname + ' ' + xhr.statistics[0].goals.total;
+  $newLi.appendChild($newPlayer);
+  $newPlayerImg.setAttribute('src', xhr.player.photo);
+  $newPlayerImg.setAttribute('class', 'player-img');
+  $newLi.appendChild($newPlayerImg);
+
+  return $newLi;
+}
