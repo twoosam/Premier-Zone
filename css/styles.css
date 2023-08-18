@@ -26,16 +26,13 @@ main {
   border: 1px solid rgb(217, 217, 217);
   background-color: rgb(217, 217, 217);
   width: 100%;
+  padding: 1rem;
 }
 
 .grey-tab a {
-  padding-left: 1rem;
-  padding-right: 1rem;
   font-family: "Cantora One", sans-serif;
   text-decoration: none;
   color: black;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
 }
 
 .standings-button {

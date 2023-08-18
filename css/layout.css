@@ -26,6 +26,11 @@
   flex-basis: calc(100% / 3);
 }
 
+.grey-mobile {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 100%;
@@ -41,5 +46,10 @@
 
   .col-desktop-5 {
     flex-basis: calc(100% / 5);
+  }
+
+  .grey-desktop {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
