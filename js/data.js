@@ -86,7 +86,7 @@ function topScorersList(xhr) {
   const $newPlayerImg = document.createElement('img');
   $newLi.setAttribute('class', 'col-mobile-3 col-desktop-5');
   $newPlayerImg.setAttribute('src', xhr.player.photo);
-  $newPlayerImg.setAttribute('class', 'player-img');
+  $newPlayerImg.setAttribute('class', 'player-img-mobile player-img-desktop');
   $newLi.appendChild($newPlayerImg);
   $newPlayer.setAttribute('class', 'player-name');
   $newPlayer.textContent = xhr.player.name;
