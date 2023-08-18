@@ -82,13 +82,18 @@ getTopScorersData();
 function topScorersList(xhr) {
   const $newLi = document.createElement('li');
   const $newPlayer = document.createElement('ins');
+  const $newGoals = document.createElement('ins');
   const $newPlayerImg = document.createElement('img');
-  $newPlayer.setAttribute('class', 'player-goals');
-  $newPlayer.textContent = xhr.player.firstname + ' ' + xhr.player.lastname + ' ' + xhr.statistics[0].goals.total;
-  $newLi.appendChild($newPlayer);
+  $newLi.setAttribute('class', 'col-mobile-3 col-desktop-5');
   $newPlayerImg.setAttribute('src', xhr.player.photo);
   $newPlayerImg.setAttribute('class', 'player-img');
   $newLi.appendChild($newPlayerImg);
+  $newPlayer.setAttribute('class', 'player-name');
+  $newPlayer.textContent = xhr.player.name;
+  $newLi.appendChild($newPlayer);
+  $newGoals.setAttribute('class', 'player-goals');
+  $newGoals.textContent = ' Goals: ' + xhr.statistics[0].goals.total;
+  $newLi.appendChild($newGoals);
 
   return $newLi;
 }

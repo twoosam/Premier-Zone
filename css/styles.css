@@ -94,12 +94,32 @@ td {
 
 ins {
   text-decoration: none;
+  display: flex;
+  justify-content: center;
 }
 
 .rank {
   width: 0.75rem;
 }
 
-.player-goals {
+#top-scorers-list {
+  margin-top: auto;
+  margin-bottom: auto;
+  list-style: none;
   color: white;
+  padding: 1.5rem;
+  font-family: "Cantora One", sans-serif;
+}
+
+.col-mobile-3,
+.col-desktop-5 {
+  padding: 0.75rem;
+}
+
+.player-img {
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  margin: auto;
+  width: 100%;
 }

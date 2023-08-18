@@ -17,6 +17,15 @@
   width: 100%;
 }
 
+#top-scorers-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-mobile-3 {
+  flex-basis: calc(100% / 3);
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 100%;
@@ -28,5 +37,9 @@
 
   .column-sixty-percent {
     width: 60%;
+  }
+
+  .col-desktop-5 {
+    flex-basis: calc(100% / 5);
   }
 }
