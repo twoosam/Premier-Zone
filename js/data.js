@@ -4,8 +4,9 @@ let data = {
   view: 'standings-view'
 };
 
+// Request to API for Standings data
 const $teamStandings = document.querySelector('#appendTeams');
-function getPremierLeagueData() {
+function getStandingsData() {
   const xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://v3.football.api-sports.io/standings?league=39&season=2023');
   xhr.setRequestHeader('x-rapidapi-host', 'v3.football.api-sports.io');
@@ -16,10 +17,11 @@ function getPremierLeagueData() {
       $teamStandings.appendChild(standingsTable(xhr.response.response[0].league.standings[0][i]));
     }
   });
-  xhr.send();
+  // xhr.send();
 }
-getPremierLeagueData();
+getStandingsData();
 
+// Function to create table for Standings
 function standingsTable(xhr) {
   const $newTr = document.createElement('tr');
   const $newTdBlank = document.createElement('td');
@@ -55,3 +57,18 @@ function standingsTable(xhr) {
 
   return $newTr;
 }
+
+// Request to API for Top Scorers Data
+// const $topScorers = document.querySelector('#topScorers');
+function getTopScorersData() {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://v3.football.api-sports.io/players/topscorers?league=39&season=2023');
+  xhr.setRequestHeader('x-rapidapi-host', 'v3.football.api-sports.io');
+  xhr.setRequestHeader('x-apisports-key', '8ad7209e9e0a016c96f4e199bed14b5c');
+  xhr.responseType = 'json';
+  xhr.addEventListener('load', function () {
+  }
+  );
+  // xhr.send();
+}
+getTopScorersData();
