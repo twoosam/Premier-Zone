@@ -1,5 +1,9 @@
 /* exported data */
 
+let data = {
+  view: 'standings-view'
+};
+
 const $teamStandings = document.querySelector('#appendTeams');
 function getPremierLeagueData() {
   const xhr = new XMLHttpRequest();
