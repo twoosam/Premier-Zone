@@ -74,7 +74,7 @@ function getTopScorersData() {
     }
   }
   );
-  xhr.send();
+  // xhr.send();
 }
 getTopScorersData();
 
