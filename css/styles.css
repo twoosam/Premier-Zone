@@ -25,12 +25,7 @@ main {
 
 .grey-tab a {
   font-family: "Cantora One", sans-serif;
-  text-decoration: none;
   color: black;
-}
-
-.standings-button {
-  text-decoration: underline;
 }
 
 .purple-tab {
@@ -81,6 +76,7 @@ td {
 .rank-logo-name {
   display: flex;
   align-items: center;
+  padding-left: 0.5rem;
 }
 
 ins {
@@ -113,4 +109,12 @@ ins {
   justify-content: center;
   border-radius: 50%;
   margin: auto;
+}
+
+.anchor-current {
+  text-decoration: underline;
+}
+
+.anchor-other {
+  text-decoration: none;
 }

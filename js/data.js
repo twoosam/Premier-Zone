@@ -17,7 +17,7 @@ function getStandingsData() {
       $teamStandings.appendChild(standingsTable(xhr.response.response[0].league.standings[0][i]));
     }
   });
-  // xhr.send();
+  xhr.send();
 }
 getStandingsData();
 
@@ -74,7 +74,7 @@ function getTopScorersData() {
     }
   }
   );
-  // xhr.send();
+  xhr.send();
 }
 getTopScorersData();
 

@@ -30,7 +30,9 @@ body {
   flex-basis: calc(100% / 3);
 }
 
-.grey-mobile {
+.grey-mobile,
+.anchor-current,
+.anchor-other {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
 }
@@ -56,7 +58,9 @@ body {
     flex-basis: calc(100% / 5);
   }
 
-  .grey-desktop {
+  .grey-desktop,
+  .anchor-current,
+  .anchor-other {
     padding-left: 1rem;
     padding-right: 1rem;
     font-size: 1.25rem;

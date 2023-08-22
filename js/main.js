@@ -1,5 +1,6 @@
 // viewSwap function
 const $topScorersView = document.querySelector('.top-scorers');
+$topScorersView.setAttribute('class', 'hidden');
 const $teamStandingsview = document.querySelector('.standings-table');
 function viewSwap(string) {
   if (string === 'top-scorers') {
@@ -9,6 +10,8 @@ function viewSwap(string) {
     $headerSpace.setAttribute('class', 'header-space-mobile');
     $premierImg.setAttribute('class', 'premier-img-mobile');
     $premierTitle.setAttribute('class', 'premier-title-mobile');
+    $standingsAnchor.setAttribute('class', 'anchor-other');
+    $topScorersAnchor.setAttribute('class', 'anchor-current');
   } else if (string === 'standings-table') {
     $topScorersView.setAttribute('class', 'hidden');
     $teamStandingsview.setAttribute('class', 'standings-table');
@@ -16,6 +19,8 @@ function viewSwap(string) {
     $headerSpace.setAttribute('class', 'header-space');
     $premierImg.setAttribute('class', 'premier-img');
     $premierTitle.setAttribute('class', 'premier-title');
+    $standingsAnchor.setAttribute('class', 'anchor-current');
+    $topScorersAnchor.setAttribute('class', 'anchor-other');
   }
   data.view = string;
 }
@@ -34,6 +39,7 @@ $standingsAnchor.addEventListener('click', eventHandlerStandings);
 
 // Anchor for when Top Scorers is clicked
 const $topScorersAnchor = document.querySelector('.top-scorers-anchor');
+$topScorersAnchor.setAttribute('class', 'anchor-other');
 function eventHandlerTopScorers() {
   viewSwap('top-scorers');
 }
