@@ -9,14 +9,8 @@ main {
   margin-bottom: 0.5rem;
 }
 
-.img {
+.premier-img {
   width: 150px;
-}
-
-.header-space h1 {
-  font-family: "Cantora One", sans-serif;
-  font-size: 40px;
-  padding-left: 20px;
 }
 
 .grey-tab {
@@ -26,16 +20,12 @@ main {
   border: 1px solid rgb(217, 217, 217);
   background-color: rgb(217, 217, 217);
   width: 100%;
+  padding: 1rem;
 }
 
-.grey-tab h3 {
-  padding-left: 1rem;
-  padding-right: 1rem;
+.grey-tab a {
   font-family: "Cantora One", sans-serif;
-}
-
-.standings-button {
-  text-decoration: underline;
+  color: black;
 }
 
 .purple-tab {
@@ -86,12 +76,45 @@ td {
 .rank-logo-name {
   display: flex;
   align-items: center;
+  padding-left: 0.5rem;
 }
 
 ins {
   text-decoration: none;
+  display: flex;
+  justify-content: center;
 }
 
 .rank {
   width: 0.75rem;
+}
+
+#top-scorers-list {
+  margin-top: auto;
+  margin-bottom: auto;
+  list-style: none;
+  color: white;
+  padding: 1.5rem;
+  font-family: "Cantora One", sans-serif;
+}
+
+.col-mobile-3,
+.col-desktop-5 {
+  padding: 0.75rem;
+}
+
+.player-img-mobile,
+.player-img-desktop {
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.anchor-current {
+  text-decoration: underline;
+}
+
+.anchor-other {
+  text-decoration: none;
 }

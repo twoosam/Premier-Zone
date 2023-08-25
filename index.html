@@ -15,27 +15,23 @@
 </head>
 
 <body>
-  <header>
+  <header id="header">
     <div class="container">
       <div class="row">
         <div class="column-full">
           <div class="header-space">
-            <img class="img" src="https://media-2.api-sports.io/football/leagues/39.png" alt="premLogo" />
-            <h1>Premier League</h1>
+            <img class="premier-img" src="https://media-2.api-sports.io/football/leagues/39.png" alt="premLogo" />
+            <h1 class="premier-title">Premier League</h1>
           </div>
         </div>
       </div>
-    </div>
-  </header>
-  <main>
-    <div class="container">
       <div class="row">
         <div class="column-full">
           <div class="grey-tab">
-            <h3 class="standings-button">Standings</h3>
-            <h3 class="top-scorers-button">Top Scorers</h3>
-            <h3 class="top-assisters-button">Top Assisters</h3>
-            <h3 class="favorites-button">Favorites</h3>
+            <a class="standings-anchor grey-mobile grey-desktop" href="#header">Standings</a>
+            <a class="top-scorers-anchor grey-mobile grey-desktop" href="#header">Top Scorers</a>
+            <a class="top-assisters-button grey-mobile grey-desktop">Top Assisters</a>
+            <a class="favorites-button grey-mobile grey-desktop">Favorites</a>
           </div>
         </div>
       </div>
@@ -46,24 +42,33 @@
               <h3>Season</h3>
               <h3>2023-24</h3>
             </div>
-            <h1>Standings</h1>
+            <h1 class="purple-tab-title">Standings</h1>
             <p></p>
           </div>
         </div>
       </div>
-      <table id="standings-table" class="column-full column-sixty-percent">
-        <thead>
-          <tr>
-            <th>&nbsp;</th>
-            <th scope="col">W</th>
-            <th scope="col">D</th>
-            <th scope="col">L</th>
-            <th scope="col">P</th>
-          </tr>
-        </thead>
-        <tbody id="appendTeams">
-        </tbody>
-      </table>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div data-view="standings-table" class="standings-table">
+        <table id="standings-table" class="column-full column-sixty-percent">
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th scope="col">W</th>
+              <th scope="col">D</th>
+              <th scope="col">L</th>
+              <th scope="col">P</th>
+            </tr>
+          </thead>
+          <tbody id="appendTeams">
+          </tbody>
+        </table>
+      </div>
+      <div data-view="top-scorers" class="top-scorers">
+        <ul id="top-scorers-list"></ul>
+      </div>
     </div>
   </main>
   <script src="js/data.js"></script>
