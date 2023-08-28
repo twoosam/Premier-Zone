@@ -90,7 +90,8 @@ function topScorersList(xhr) {
   return $newLi;
 }
 
-// const $topAssisters = document.querySelector('#top-assisters-list');
+// Request API for Top Assisters Data
+const $topAssisters = document.querySelector('#top-assisters-list');
 function getTopAssistersData() {
   const xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://v3.football.api-sports.io/players/topassists?league=39&season=2023');
@@ -100,11 +101,34 @@ function getTopAssistersData() {
   xhr.addEventListener('load', function () {
     // console.log(xhr.status);
     // console.log(xhr.response);
+    for (let i = 0; i < xhr.response.response.length; i++) {
+      $topAssisters.appendChild(topAssistersList(xhr.response.response[i]));
+    }
   }
   );
   xhr.send();
 }
 getTopAssistersData();
+
+// Function to create player name and images
+function topAssistersList(xhr) {
+  const $newLi = document.createElement('li');
+  const $newPlayer = document.createElement('ins');
+  const $newAssists = document.createElement('ins');
+  const $newPlayerImg = document.createElement('img');
+  $newLi.setAttribute('class', 'col-mobile-3 col-desktop-5');
+  $newPlayerImg.setAttribute('src', xhr.player.photo);
+  $newPlayerImg.setAttribute('class', 'player-img-mobile player-img-desktop');
+  $newLi.appendChild($newPlayerImg);
+  $newPlayer.setAttribute('class', 'player-name');
+  $newPlayer.textContent = xhr.player.name;
+  $newLi.appendChild($newPlayer);
+  $newAssists.setAttribute('class', 'player-assists');
+  $newAssists.textContent = ' Assists: ' + xhr.statistics[0].goals.assists;
+  $newLi.appendChild($newAssists);
+
+  return $newLi;
+}
 
 // viewSwap function
 const $topScorersView = document.querySelector('.top-scorers');
