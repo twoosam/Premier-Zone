@@ -93,26 +93,43 @@ function topScorersList(xhr) {
 // viewSwap function
 const $topScorersView = document.querySelector('.top-scorers');
 $topScorersView.setAttribute('class', 'hidden');
+const $topAssistersView = document.querySelector('.top-assisters');
+$topAssistersView.setAttribute('class', 'hidden');
 const $teamStandingsview = document.querySelector('.standings-table');
 function viewSwap(string) {
   if (string === 'top-scorers') {
     $topScorersView.setAttribute('class', 'top-scorers');
     $teamStandingsview.setAttribute('class', 'hidden');
+    $topAssistersView.setAttribute('class', 'hidden');
     $purpleTabName.textContent = 'Top Scorers';
     $headerSpace.setAttribute('class', 'header-space-mobile');
     $premierImg.setAttribute('class', 'premier-img-mobile');
     $premierTitle.setAttribute('class', 'premier-title-mobile');
     $standingsAnchor.setAttribute('class', 'anchor-other');
     $topScorersAnchor.setAttribute('class', 'anchor-current');
+    $topAssistersAnchor.setAttribute('class', 'anchor-other');
   } else if (string === 'standings-table') {
     $topScorersView.setAttribute('class', 'hidden');
     $teamStandingsview.setAttribute('class', 'standings-table');
+    $topAssistersView.setAttribute('class', 'hidden');
     $purpleTabName.textContent = 'Standings';
     $headerSpace.setAttribute('class', 'header-space');
     $premierImg.setAttribute('class', 'premier-img');
     $premierTitle.setAttribute('class', 'premier-title');
     $standingsAnchor.setAttribute('class', 'anchor-current');
     $topScorersAnchor.setAttribute('class', 'anchor-other');
+    $topAssistersAnchor.setAttribute('class', 'anchor-other');
+  } else if (string === 'top-assisters') {
+    $topAssistersView.setAttribute('class', 'top-assisters');
+    $topScorersView.setAttribute('class', 'hidden');
+    $teamStandingsview.setAttribute('class', 'hidden');
+    $purpleTabName.textContent = 'Top Assisters';
+    $headerSpace.setAttribute('class', 'header-space-mobile');
+    $premierImg.setAttribute('class', 'premier-img-mobile');
+    $premierTitle.setAttribute('class', 'premier-title-mobile');
+    $standingsAnchor.setAttribute('class', 'anchor-other');
+    $topScorersAnchor.setAttribute('class', 'anchor-other');
+    $topAssistersAnchor.setAttribute('class', 'anchor-current');
   }
   data.view = string;
 }
@@ -136,3 +153,5 @@ function eventHandlerTopScorers() {
   viewSwap('top-scorers');
 }
 $topScorersAnchor.addEventListener('click', eventHandlerTopScorers);
+
+const $topAssistersAnchor = document.querySelector('.top-assisters-anchor');
