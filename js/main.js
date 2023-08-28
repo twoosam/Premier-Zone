@@ -154,4 +154,10 @@ function eventHandlerTopScorers() {
 }
 $topScorersAnchor.addEventListener('click', eventHandlerTopScorers);
 
+// Anchor for when Top Assisters is clicked
 const $topAssistersAnchor = document.querySelector('.top-assisters-anchor');
+$topAssistersAnchor.setAttribute('class', 'anchor-other');
+function eventHandlerTopAssisters() {
+  viewSwap('top-assisters');
+}
+$topAssistersAnchor.addEventListener('click', eventHandlerTopAssisters);
