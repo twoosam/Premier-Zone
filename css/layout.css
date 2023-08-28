@@ -26,6 +26,11 @@ body {
   flex-wrap: wrap;
 }
 
+#top-assisters-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .col-mobile-3 {
   flex-basis: calc(100% / 3);
 }
