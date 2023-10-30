@@ -78,6 +78,7 @@ function topScorersList(xhr) {
   const $newPlayerImg = document.createElement('img');
   $newLi.setAttribute('class', 'col-mobile-3 col-desktop-5');
   $newPlayerImg.setAttribute('src', xhr.player.photo);
+  $newPlayerImg.setAttribute('alt', xhr.player.name);
   $newPlayerImg.setAttribute('class', 'player-img-mobile player-img-desktop');
   $newLi.appendChild($newPlayerImg);
   $newPlayer.setAttribute('class', 'player-name');
@@ -116,6 +117,7 @@ function topAssistersList(xhr) {
   const $newPlayerImg = document.createElement('img');
   $newLi.setAttribute('class', 'col-mobile-3 col-desktop-5');
   $newPlayerImg.setAttribute('src', xhr.player.photo);
+  $newPlayerImg.setAttribute('alt', xhr.player.name);
   $newPlayerImg.setAttribute('class', 'player-img-mobile player-img-desktop');
   $newLi.appendChild($newPlayerImg);
   $newPlayer.setAttribute('class', 'player-name');
