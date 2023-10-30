@@ -78,6 +78,7 @@ function topScorersList(xhr) {
   const $newPlayerImg = document.createElement('img');
   $newLi.setAttribute('class', 'col-mobile-3 col-desktop-5');
   $newPlayerImg.setAttribute('src', xhr.player.photo);
+  $newPlayerImg.setAttribute('alt', xhr.player.name);
   $newPlayerImg.setAttribute('class', 'player-img-mobile player-img-desktop');
   $newLi.appendChild($newPlayerImg);
   $newPlayer.setAttribute('class', 'player-name');
@@ -90,29 +91,85 @@ function topScorersList(xhr) {
   return $newLi;
 }
 
+// Request API for Top Assisters Data
+const $topAssisters = document.querySelector('#top-assisters-list');
+function getTopAssistersData() {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://v3.football.api-sports.io/players/topassists?league=39&season=2023');
+  xhr.setRequestHeader('x-rapidapi-host', 'v3.football.api-sports.io');
+  xhr.setRequestHeader('x-apisports-key', '8ad7209e9e0a016c96f4e199bed14b5c');
+  xhr.responseType = 'json';
+  xhr.addEventListener('load', function () {
+    for (let i = 0; i < xhr.response.response.length; i++) {
+      $topAssisters.appendChild(topAssistersList(xhr.response.response[i]));
+    }
+  }
+  );
+  xhr.send();
+}
+getTopAssistersData();
+
+// Function to create player name and images
+function topAssistersList(xhr) {
+  const $newLi = document.createElement('li');
+  const $newPlayer = document.createElement('ins');
+  const $newAssists = document.createElement('ins');
+  const $newPlayerImg = document.createElement('img');
+  $newLi.setAttribute('class', 'col-mobile-3 col-desktop-5');
+  $newPlayerImg.setAttribute('src', xhr.player.photo);
+  $newPlayerImg.setAttribute('alt', xhr.player.name);
+  $newPlayerImg.setAttribute('class', 'player-img-mobile player-img-desktop');
+  $newLi.appendChild($newPlayerImg);
+  $newPlayer.setAttribute('class', 'player-name');
+  $newPlayer.textContent = xhr.player.name;
+  $newLi.appendChild($newPlayer);
+  $newAssists.setAttribute('class', 'player-assists');
+  $newAssists.textContent = ' Assists: ' + xhr.statistics[0].goals.assists;
+  $newLi.appendChild($newAssists);
+
+  return $newLi;
+}
+
 // viewSwap function
 const $topScorersView = document.querySelector('.top-scorers');
 $topScorersView.setAttribute('class', 'hidden');
+const $topAssistersView = document.querySelector('.top-assisters');
+$topAssistersView.setAttribute('class', 'hidden');
 const $teamStandingsview = document.querySelector('.standings-table');
 function viewSwap(string) {
   if (string === 'top-scorers') {
     $topScorersView.setAttribute('class', 'top-scorers');
     $teamStandingsview.setAttribute('class', 'hidden');
+    $topAssistersView.setAttribute('class', 'hidden');
     $purpleTabName.textContent = 'Top Scorers';
     $headerSpace.setAttribute('class', 'header-space-mobile');
     $premierImg.setAttribute('class', 'premier-img-mobile');
     $premierTitle.setAttribute('class', 'premier-title-mobile');
     $standingsAnchor.setAttribute('class', 'anchor-other');
     $topScorersAnchor.setAttribute('class', 'anchor-current');
+    $topAssistersAnchor.setAttribute('class', 'anchor-other');
   } else if (string === 'standings-table') {
     $topScorersView.setAttribute('class', 'hidden');
     $teamStandingsview.setAttribute('class', 'standings-table');
+    $topAssistersView.setAttribute('class', 'hidden');
     $purpleTabName.textContent = 'Standings';
     $headerSpace.setAttribute('class', 'header-space');
     $premierImg.setAttribute('class', 'premier-img');
     $premierTitle.setAttribute('class', 'premier-title');
     $standingsAnchor.setAttribute('class', 'anchor-current');
     $topScorersAnchor.setAttribute('class', 'anchor-other');
+    $topAssistersAnchor.setAttribute('class', 'anchor-other');
+  } else if (string === 'top-assisters') {
+    $topAssistersView.setAttribute('class', 'top-assisters');
+    $topScorersView.setAttribute('class', 'hidden');
+    $teamStandingsview.setAttribute('class', 'hidden');
+    $purpleTabName.textContent = 'Top Assisters';
+    $headerSpace.setAttribute('class', 'header-space-mobile');
+    $premierImg.setAttribute('class', 'premier-img-mobile');
+    $premierTitle.setAttribute('class', 'premier-title-mobile');
+    $standingsAnchor.setAttribute('class', 'anchor-other');
+    $topScorersAnchor.setAttribute('class', 'anchor-other');
+    $topAssistersAnchor.setAttribute('class', 'anchor-current');
   }
   data.view = string;
 }
@@ -136,3 +193,11 @@ function eventHandlerTopScorers() {
   viewSwap('top-scorers');
 }
 $topScorersAnchor.addEventListener('click', eventHandlerTopScorers);
+
+// Anchor for when Top Assisters is clicked
+const $topAssistersAnchor = document.querySelector('.top-assisters-anchor');
+$topAssistersAnchor.setAttribute('class', 'anchor-other');
+function eventHandlerTopAssisters() {
+  viewSwap('top-assisters');
+}
+$topAssistersAnchor.addEventListener('click', eventHandlerTopAssisters);
